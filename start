@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Generate image
+docker build -t comfyui .
+
+HOST_PATH="./"
+
+docker run \
+  --gpus all \
+  --name comfyui \
+  --rm \
+  -p 8188:8188 \
+  -v ${HOST_PATH}/models/checkpoints/:/ComfyUI/models/checkpoints/ \
+  -v ${HOST_PATH}/models/loras/:/ComfyUI/models/loras/ \
+  -v ${HOST_PATH}/output/:/ComfyUI/output/ \
+  -it comfyui
