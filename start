@@ -12,5 +12,9 @@ docker run \
   -p 8188:8188 \
   -v ${HOST_PATH}/models/checkpoints/:/ComfyUI/models/checkpoints/ \
   -v ${HOST_PATH}/models/loras/:/ComfyUI/models/loras/ \
+  -v ${HOST_PATH}/models/vae/:/ComfyUI/models/vae/ \
+  -v ${HOST_PATH}/models/upscale_models/:/ComfyUI/models/upscale_models/ \
+  -v ${HOST_PATH}/models/text_encoders/:/ComfyUI/models/text_encoders/ \
+  -v ${HOST_PATH}/models/diffusion_models/:/ComfyUI/models/diffusion_models/ \
   -v ${HOST_PATH}/output/:/ComfyUI/output/ \
   -it comfyui

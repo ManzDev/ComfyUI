@@ -1,5 +1,10 @@
 models/checkpoints/*.*
+models/diffusion_models/*.*
+models/text_encoders/*.*
+models/upscale_models/*.*
 models/loras/*.*
+models/vae/*.*
+models/text_encoders/*.*
 output/*.png
 output/*.webp
 output/*.jpg

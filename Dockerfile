@@ -14,9 +14,10 @@ RUN git clone https://github.com/comfyanonymous/ComfyUI.git /ComfyUI/ && \
     git clone https://github.com/Jcd1230/rembg-comfyui-node /ComfyUI/custom_nodes/rembg-comfyui-node/ && \
     git clone https://github.com/pythongosssss/ComfyUI-Custom-Scripts /ComfyUI/custom_nodes/ComfyUI-Custom-Scripts/ && \
     git clone https://github.com/jitcoder/lora-info /ComfyUI/custom_nodes/lora-info/ && \
-    git clone https://github.com/stavsap/comfyui-ollama /ComfyUI/custom_nodes/comfyui-ollama/
+    git clone https://github.com/stavsap/comfyui-ollama /ComfyUI/custom_nodes/comfyui-ollama/ && \
+    git clone https://github.com/city96/ComfyUI-GGUF /ComfyUI/custom_nodes/ComfyUI-GGUF/
 RUN pip install -r /ComfyUI/requirements.txt
-RUN pip install ollama rembg onnxruntime
+RUN pip install ollama rembg onnxruntime uv gguf
 
 # Cleanup
 RUN rm -rf /var/lib/apt/lists/*

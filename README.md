@@ -4,24 +4,31 @@ Versión dockerizada de [ComfyUI](https://www.comfy.org/) para aislar y simplifi
 
 Es necesario lo siguiente:
 
-- Docker instalado
-- WSL2 instalado (Windows)
-- WSL2 configurado para trabajar con CUDA/GPU (Windows)
-- NVIDIA Container Toolkit instalado (compartir GPU con Docker)
+- 1️⃣ [Docker](https://docs.docker.com/desktop/setup/install/windows-install/) instalado
+- 2️⃣ [WSL2](https://terminaldelinux.com/terminal/wsl/instalacion-wsl/) instalado (Windows)
+- 3️⃣ [Drivers de NVIDIA](https://www.nvidia.com/es-es/drivers/) instalados
+- 4️⃣ [CUDA Toolkit 13.1](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Debian&target_version=13&target_type=deb_local) para usar GPU en WSL2 (Windows)
+- 5️⃣ [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#with-apt-ubuntu-debian) instalado (compartir GPU con Docker)
 
-### NVIDIA Container Toolkit
+### Modelos (imagen)
 
-Para utilizar GPU del anfitron necesitas NVIDIA Container Toolkit. Aquí tienes las instrucciones para instalarlo: [Install NVIDIA Container Toolkit 1.18.1](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#with-apt-ubuntu-debian)
-
-### Modelos
-
-Para empezar, necesitarás un modelo «checkpoint». Uno muy bueno es [Juggernaut XL](https://civitai.com/models/133005/juggernaut-xl). Colócalo en la carpeta `models/checkpoints/`.
-
-Luego, opcionalmente, puedes añadir modelos LoRA en `models/loras/` para mejorar las imágenes generadas.
-
-Descarga la siguiente imagen y arrástrala a una ventana de ComfyUI. Tiene un workflow básico integrado con un prompt de ejemplo para generar la imagen:
+Para empezar, necesitarás un modelo «checkpoint». Uno muy bueno es [Juggernaut XL](https://civitai.com/models/133005/juggernaut-xl). Debes colocarlo en la carpeta `models/checkpoints/`.
 
 ![Imagen generada de ejemplo](example.png)
+
+### Modelos (video)
+
+Para empezar, necesitarás un modelo de difusión y un lora. Un buen punto de partida podría ser:
+
+- [WAN2.2 I2V A15B (GGUF)](https://huggingface.co/QuantStack/Wan2.2-I2V-A14B-GGUF)
+- [Lora WAN 2.2 Lightning](https://huggingface.co/Kijai/WanVideo_comfy/tree/main/LoRAs/Wan22-Lightning/old)
+- [VAE para WAN2.2](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged)
+
+<video controls autoplay loop src="example.mp4"></video>
+
+En ambos casos (imagen y video) opcionalmente puedes añadir modelos LoRA en `models/loras/` para mejorar los ficheros multimedia generados.
+
+Descarga la imagen o el video y arrástralo a una ventana de ComfyUI. Tiene un workflow básico integrado con un prompt de ejemplo para trabajar con ellos.
 
 ### Plugins instalados
 
@@ -31,10 +38,11 @@ Descarga la siguiente imagen y arrástrala a una ventana de ComfyUI. Tiene un wo
 - Rembg Background: Plugin para eliminar el fondo de imágenes
 - LoraInfo: Plugin para obtener información de LoRAs
 - LoadLoraWithTags: Plugin para cargar automáticamente tags de las LoRAs
+- ComfyUI GGUF: Soporte de cuantización usando modelos GGUF
 
 ### Getting Started
 
-Tienes el script `start` que genera la imagen de docker (7~8GB), crea un contenedor y arranca ComfyUI.
+El script `start` genera la imagen de docker (recomendado tener al menos unos 15GB libres en WSL2), crea un contenedor y arranca ComfyUI en modo bajo consumo de memoria.
 
 - Usa las carpetas `models/` para compartir modelos o loras.
 - En la carpeta `output/` se guardan las imágenes generadas.
