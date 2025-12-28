@@ -24,7 +24,8 @@ Para empezar, necesitarás un modelo de difusión y un lora. Un buen punto de pa
 - [Lora WAN 2.2 Lightning](https://huggingface.co/Kijai/WanVideo_comfy/tree/main/LoRAs/Wan22-Lightning/old)
 - [VAE para WAN2.2](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged)
 
-<video controls autoplay loop src="example.mp4"></video>
+**Pulsa para ver el video generado a partir de la imagen**:
+[![Imagen generada de ejemplo](example.png)](example.mp4)
 
 En ambos casos (imagen y video) opcionalmente puedes añadir modelos LoRA en `models/loras/` para mejorar los ficheros multimedia generados.
 
